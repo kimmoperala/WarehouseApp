@@ -1,0 +1,1 @@
+web: node ../warehouse-app/src/App
