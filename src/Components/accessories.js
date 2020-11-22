@@ -23,7 +23,7 @@ function Accessories() {
     const url = "https://bad-api-assignment.reaktor.com/products/accessories";
     axios.get(url)
         .then(res => {
-          console.log(res.data);
+          console.log("JSON-data aluksi", res.data);
           setAccessories(res.data);
         })
         .catch(error => {
@@ -167,7 +167,7 @@ function Accessories() {
       }
       setFinal(final);
       setLoaded(true);
-      console.log("Final ", final);
+      console.log("JSON-data lopuksi ", final);
     }
   }, [reps, xoon, abiplos, nouke, derp]);
 
@@ -176,9 +176,9 @@ function Accessories() {
       <div>
         <h1>Accessories page</h1>
         {!isLoaded &&
-        <p>
-          Loading...
-        </p>}
+        <p className="loadingText">Loading<span className="loadingDot">.</span>
+          <span className="loadingDot">.</span><span className="loadingDot">.</span></p>
+        }
         {error &&
         <p>
           Error in loading process!
@@ -207,13 +207,10 @@ function Accessories() {
                     </td>
                     <td>
                       {final.color.length !== 1 &&
-                      <ul>
-                        {final.color.map(color => (
-                            <li>
-                              {color}
-                            </li>
-                        ))}
-                      </ul>}
+                      <>
+                        {final.color[0]} & {final.color[1]}
+                      </>
+                      }
                       {final.color.length === 1 && final.color}
                     </td>
                     <td>

@@ -23,7 +23,7 @@ function Jackets() {
     const url = "https://bad-api-assignment.reaktor.com/products/jackets";
     axios.get(url)
         .then(res => {
-          console.log(res.data);
+          console.log("JSON-data aluksi", res.data);
           setJackets(res.data);
         })
         .catch(error => {
@@ -167,7 +167,7 @@ useEffect(() => {
     }
     setFinal(final);
     setLoaded(true);
-    console.log("Final ", final);
+    console.log("JSON-data lopuksi ", final);
   }
   }, [reps, xoon, abiplos, nouke, derp]);
 
@@ -176,9 +176,9 @@ useEffect(() => {
       <div>
       <h1>Jackets page</h1>
         {!isLoaded &&
-        <p>
-          Loading...
-        </p>}
+        <p className="loadingText">Loading<span className="loadingDot">.</span>
+          <span className="loadingDot">.</span><span className="loadingDot">.</span></p>
+        }
         {error &&
         <p>
           Error in loading process!
@@ -207,13 +207,10 @@ useEffect(() => {
                 </td>
                 <td>
                   {final.color.length !== 1 &&
-                  <ul>
-                      {final.color.map(color => (
-                          <li>
-                            {color}
-                          </li>
-                      ))}
-                  </ul>}
+                      <>
+                      {final.color[0]} & {final.color[1]}
+                      </>
+                  }
                   {final.color.length === 1 && final.color}
                 </td>
                 <td>
