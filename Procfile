@@ -1,1 +1,1 @@
-web: node ../warehouse-app/src/App
+web: node ../warehouse-app/src/App.js
