@@ -25,3 +25,6 @@ code {
 .loadingDot:nth-child(3){
   animation-delay: 500ms;
 }
+.tryagain {
+  margin: 1em;
+}

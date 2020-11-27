@@ -1,12 +1,13 @@
 import React from 'react';
-import {Nav} from 'react-bootstrap';
+import {Navbar, Nav} from 'react-bootstrap';
 
 function Navigation () {
   return (
-          <Nav activeKey="/">
-            <Nav.Item>
-              <Nav.Link href="/">Front Page</Nav.Link>
-            </Nav.Item>
+      <Navbar bg="light" expand="lg">
+        <Navbar.Brand href="/">Warehouse App</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+        <Nav>
             <Nav.Item>
               <Nav.Link href="/jackets">Jackets</Nav.Link>
             </Nav.Item>
@@ -17,6 +18,8 @@ function Navigation () {
               <Nav.Link href="/accessories">Accessories</Nav.Link>
             </Nav.Item>
           </Nav>
+        </Navbar.Collapse>
+      </Navbar>
   );
 }
 
